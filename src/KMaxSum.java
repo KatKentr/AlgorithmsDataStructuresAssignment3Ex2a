@@ -1,3 +1,8 @@
+/******************************************************************************
+* Compilation: javac KMaxSum.java
+* Dependencies: StdIn.java StdOut.java MaxPQ.java
+* Aikaterini Kentroti
+******************************************************************************/
 
 public class KMaxSum {
 	
@@ -6,18 +11,26 @@ public class KMaxSum {
 		 MaxPQ<CustArray> pq = new MaxPQ<CustArray>();
 
 		 
-		 //brute force, not ideal i guess
-		 //although arrays have identical size, x.length=y.length
+		 //calculating the sums, inserting the objects in pq
 		 for (int i = 0; i < x.length; i++) 
-		        for (int j = 0; j < y.length; j++) {
+		        for (int j = 0; j < y.length; j++) {   //(although arrays have identical size, x.length=y.length
 		        	pq.insert(new CustArray (i,j,x[i]+y[j]));
 		        	//printing the objects in the priority queue
-		        	 StdOut.print("The objects: " +pq.toString());
+		        	 StdOut.print("keys in pq: " +pq.toString()+"\n");
 		        }
-		 
-		 //printing the k largest sums
+	
+		 //printing the k largest different sums
 		 for (int i=0; i<k; i++) {
-			 		 
+			 StdOut.print("k="+i+" keys in pq: " +pq.toString()+"\n");
+			 
+			 CustArray item=pq.delMax();
+			 String str=String.format("sum=%1$d, a[%2$d]=%3$d, b[%4$d]=%5$d", item.sum,item.index_a,x[item.index_a],item.index_b,y[item.index_b])+"\n";
+			 StdOut.print(str);
+			 
+			 //if the current maximum item is equal to the previous, delete it as well to avoid printing identical sums
+			 if (item.compareTo(pq.max())==0) {
+				 pq.delMax();			
+			 }	 
 		 }
 	}	 
 	
@@ -28,7 +41,7 @@ public class KMaxSum {
 			 private int index_b;
 			 
 			 //constructor			 
-			 public CustArray(int sum, int index_a, int index_b) {				 
+			 public CustArray( int index_a, int index_b,int sum) {				 
 				 this.sum=sum;
 				 this.index_a=index_a;
 				 this.index_b=index_b;				 
@@ -36,7 +49,7 @@ public class KMaxSum {
 			 
 			 
 			 public int compareTo(CustArray that) {
-			        return that.sum - sum;
+				 return Integer.compare(this.sum, that.sum);
 			    }
 			 
 			 

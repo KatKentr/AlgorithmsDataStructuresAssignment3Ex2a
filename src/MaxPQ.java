@@ -291,7 +291,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
     /**
      * Returns a string representation of this priority queue.
      *
-     * @return the sequence of items in this priority in FIFO order, separated by spaces
+     * @return the sequence of items in this priority queue in FIFO order, separated by spaces
      */
     public String toString() {
         StringBuilder s = new StringBuilder();

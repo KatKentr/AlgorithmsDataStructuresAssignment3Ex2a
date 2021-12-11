@@ -1,7 +1,14 @@
+/******************************************************************************
+* Compilation: javac p3e2a.java
+* Execution: java p3e2a < in-p3e2a.txt > out-p3e2a.txt
+* Dependencies: StdIn.java StdOut.java StdArrayIO.java KMaxSum.java
+* Data files: in-p3e2a.txt
+* Aikaterini Kentroti
+******************************************************************************/
+
+
 import java.util.Arrays;
 import java.util.Collections;
-
-
 
 public class p3e2a {
 	
@@ -13,7 +20,7 @@ public class p3e2a {
 		StdOut.println();
 	}
 	
-	//method that converts the arrays with elements of primitive data type int to objects of type Integer(wrapper type)
+	//method that converts the arrays with elements of primitive data type int to objects of type Integer(wrapper type) and returns the array
 	public static Integer[] convertintToInt(int[] x) {
 		Integer[] y=new Integer[x.length];
 		for (int i=0;i<x.length;i++) {
@@ -29,7 +36,6 @@ public class p3e2a {
 		int arr1[]=StdArrayIO.readInt1D();
 		int arr2[]=StdArrayIO.readInt1D();
 		int number= StdIn.readInt();
-		int n=arr1.length;
 				
 		//convert the input arrays with elements of primitive data type int to objects of type Integer(wrapper type)
 		Integer[] a=convertintToInt(arr1);
@@ -39,11 +45,14 @@ public class p3e2a {
 		printIntArray(a);
 		printIntArray(b);
 		StdOut.print("Number k is: " + Integer.toString(number)+"\n");
-		StdOut.print("Sorted arrays:\n");
+		StdOut.print("Arrays in descending order:\n");
 		Arrays.sort(a,Collections.reverseOrder());
 		Arrays.sort(b,Collections.reverseOrder());
 		printIntArray(a);
 		printIntArray(b);
+		
+		KMaxSum.findMaxSum(a,b,number);
+		
 		
 	}
 }
