@@ -20,7 +20,7 @@ public class p3e2a {
 		StdOut.println();
 	}
 	
-	//method that converts the arrays with elements of primitive data type int to objects of type Integer(wrapper type) and returns the array
+	//method that transforms the arrays with elements of primitive data type int to objects of type Integer(wrapper type) and returns the array
 	public static Integer[] convertintToInt(int[] x) {
 		Integer[] y=new Integer[x.length];
 		for (int i=0;i<x.length;i++) {
@@ -41,17 +41,19 @@ public class p3e2a {
 		Integer[] a=convertintToInt(arr1);
 		Integer[] b=convertintToInt(arr2);
 				
-		//print the arrays
+		//print the arrays and the number
 		printIntArray(a);
 		printIntArray(b);
 		StdOut.print("Number k is: " + Integer.toString(number)+"\n");
+		
 		StdOut.print("Arrays in descending order:\n");
-		Arrays.sort(a,Collections.reverseOrder());
+		Arrays.sort(a,Collections.reverseOrder());  //sort the arrays in descending order
 		Arrays.sort(b,Collections.reverseOrder());
-		printIntArray(a);
+		
+		printIntArray(a);           //print the arrays
 		printIntArray(b);
 		
-		KMaxSum.findMaxSum(a,b,number);
+		KMaxSum.findMaxSum(a,b,number);  //invoke the method that returns the largest sums
 		
 		
 	}
