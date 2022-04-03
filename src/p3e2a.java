@@ -1,6 +1,6 @@
 /******************************************************************************
 * Compilation: javac p3e2a.java
-* Execution: java p3e2a < in-p3e2a.txt > out-p3e2a.txt
+* Execution: java p3e2a < in-p3e2a.txt 
 * Dependencies: StdIn.java StdOut.java StdArrayIO.java KMaxSum.java
 * Data files: in-p3e2a.txt
 * Aikaterini Kentroti
